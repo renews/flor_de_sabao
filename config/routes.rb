@@ -1,4 +1,5 @@
 FlorDeSabao::Application.routes.draw do
+  get "landings/index"
   resources :products
 
   resources :materials
