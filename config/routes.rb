@@ -1,4 +1,6 @@
 FlorDeSabao::Application.routes.draw do
+  resources :products
+
   resources :materials
 
   resources :characteristics
