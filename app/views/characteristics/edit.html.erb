@@ -1,6 +1,5 @@
-<h1>Editing characteristic</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @characteristic %> |
-<%= link_to 'Back', characteristics_path %>
+<%- model_class = Characteristic -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Characteristic %></h1>
+</div>
+<%= render :partial => 'form' %>
