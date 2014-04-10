@@ -1,45 +1,52 @@
-<%= form_for(@material) do |f| %>
-  <% if @material.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
-
-      <ul>
-      <% @material.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @material, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :price, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :quantity, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :quantity, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :unit, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :unit, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :volume, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :volume, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :suplier, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :suplier, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :minimum_stock, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :minimum_stock, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :unit %><br>
-    <%= f.text_field :unit %>
-  </div>
-  <div class="field">
-    <%= f.label :volume %><br>
-    <%= f.text_field :volume %>
-  </div>
-  <div class="field">
-    <%= f.label :suplier %><br>
-    <%= f.text_field :suplier %>
-  </div>
-  <div class="field">
-    <%= f.label :minimum_stock %><br>
-    <%= f.number_field :minimum_stock %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  materials_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

@@ -1,39 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Material -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Material %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @material.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @material.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:price) %></dt>
+      <dd><pre class="prettyprint"><%= @material.price %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:quantity) %></dt>
+      <dd><pre class="prettyprint"><%= @material.quantity %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:unit) %></dt>
+      <dd><pre class="prettyprint"><%= @material.unit %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:volume) %></dt>
+      <dd><pre class="prettyprint"><%= @material.volume %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:suplier) %></dt>
+      <dd><pre class="prettyprint"><%= @material.suplier %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:minimum_stock) %></dt>
+      <dd><pre class="prettyprint"><%= @material.minimum_stock %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @material.price %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              materials_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_material_path(@material), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              material_path(@material),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @material.quantity %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  <%= @material.unit %>
-</p>
-
-<p>
-  <strong>Volume:</strong>
-  <%= @material.volume %>
-</p>
-
-<p>
-  <strong>Suplier:</strong>
-  <%= @material.suplier %>
-</p>
-
-<p>
-  <strong>Minimum stock:</strong>
-  <%= @material.minimum_stock %>
-</p>
-
-<%= link_to 'Edit', edit_material_path(@material) %> |
-<%= link_to 'Back', materials_path %>
